@@ -1,0 +1,35 @@
+# RealSense D455 Camera Configuration
+# Optimized for Intel Core Ultra 7 165H system
+
+# Stream Configuration
+width: 640
+height: 480
+fps: 30
+
+# Stream Enables
+enable_rgb: true
+enable_depth: true
+enable_imu: false  # Set to true if IMU data needed
+
+# Depth Configuration
+depth_units: 0.001  # Depth units in meters (1mm = 0.001m)
+laser_power: 150    # Laser power (0-360), 150 is good default
+visual_preset: "medium_density"  # Options: custom, default, hand, high_accuracy, high_density, medium_density
+
+# Advanced Settings
+depth_clamp_distance: 8.0  # Maximum depth in meters
+hole_filling: true         # Enable hole filling
+spatial_filter: true       # Enable spatial filtering
+temporal_filter: true      # Enable temporal filtering
+
+# USB Configuration (important for USB 2.0 vs 3.0)
+# If using USB 2.0, keep resolution at 640x480
+# For USB 3.0, you can try 848x480 or higher
+usb_type: "auto"  # auto, usb2, usb3
+
+# Alignment
+align_depth_to_color: true
+
+# Performance Settings
+frame_timeout_ms: 1000  # Timeout for frame capture
+warmup_frames: 30       # Number of frames to skip during warmup

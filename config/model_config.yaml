@@ -1,0 +1,37 @@
+# YOLOv11 Model Configuration
+# Optimized for Intel Core Ultra 7 165H system
+
+# Model Settings
+model_path: "data/models/yolov11n.pt"  # Path to YOLOv11 model weights
+model_type: "yolov11n"                  # Options: yolov11n, yolov11s, yolov11m, yolov11l, yolov11x
+
+# Inference Settings
+confidence_threshold: 0.5   # Minimum confidence for detections
+iou_threshold: 0.45        # IoU threshold for NMS
+max_detections: 50         # Maximum number of detections per frame
+
+# Device Configuration
+device: "auto"             # Options: auto, cpu, cuda, mps
+intel_optimization: true   # Enable Intel Extension for PyTorch optimizations
+
+# Intel Hardware Acceleration
+cpu_optimization: true     # Enable CPU optimizations
+npu_acceleration: false    # Enable NPU acceleration (experimental)
+gpu_acceleration: false    # Enable GPU acceleration (if available)
+
+# Performance Settings
+batch_size: 1              # Batch size for inference
+num_threads: 4             # Number of CPU threads
+precision: "fp32"          # Options: fp32, fp16, int8
+
+# Model Download
+auto_download: true        # Automatically download model if not found
+model_source: "ultralytics" # Source for model download
+
+# Class Filtering (COCO classes)
+target_classes:
+  - 0  # person - only detect people
+
+# Post-processing
+enable_tracking: true      # Enable object tracking
+tracking_method: "bytetrack"  # Tracking algorithm

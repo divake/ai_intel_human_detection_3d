@@ -1,0 +1,1 @@
+# Model package for YOLOv11 detection and Intel optimizations

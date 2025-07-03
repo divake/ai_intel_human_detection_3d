@@ -1,0 +1,47 @@
+# Multi-Person Tracking Configuration
+# Optimized for real-time human tracking
+
+# Track Management
+max_disappeared: 30        # Maximum frames a track can be missing
+max_distance: 1.0         # Maximum distance for track association (meters)
+min_hits: 3               # Minimum detections before track is confirmed
+max_age: 5.0              # Maximum age of track in seconds
+
+# Association Thresholds
+iou_threshold: 0.3         # Minimum IoU for bounding box association
+distance_threshold: 1.0    # Maximum 3D distance for association (meters)
+confidence_threshold: 0.5  # Minimum detection confidence for tracking
+
+# Motion Model
+use_kalman_filter: true    # Enable Kalman filter for motion prediction
+process_noise: 0.1         # Process noise covariance
+measurement_noise: 0.5     # Measurement noise covariance
+initial_covariance: 100.0  # Initial state covariance
+
+# Trajectory Settings
+trajectory_length: 50      # Maximum trajectory points to store
+speed_smoothing: 0.7       # Smoothing factor for speed calculation
+position_smoothing: 0.8    # Smoothing factor for position
+
+# Track State Management
+tentative_max_age: 1.0     # Maximum age for tentative tracks
+confirmed_min_hits: 3      # Minimum hits to confirm track
+deleted_max_age: 2.0       # Time to keep deleted tracks for potential recovery
+
+# Performance Settings
+association_method: "hungarian"  # Options: greedy, hungarian
+max_tracks: 20             # Maximum number of simultaneous tracks
+
+# Real vs Photo Detection Integration
+enable_depth_filtering: true     # Use depth analysis for track validation
+depth_consistency_threshold: 0.2 # Maximum depth variation for valid tracks
+min_valid_depth_ratio: 0.3      # Minimum ratio of valid depth pixels
+
+# Speed and Movement Analysis
+walking_speed_threshold: 0.3     # Minimum speed to classify as walking (m/s)
+running_speed_threshold: 2.0     # Minimum speed to classify as running (m/s)
+stationary_threshold: 0.1       # Maximum speed to classify as stationary (m/s)
+
+# Posture Integration
+enable_posture_tracking: true    # Track posture changes over time
+posture_smoothing_window: 5      # Window size for posture smoothing

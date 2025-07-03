@@ -1,0 +1,69 @@
+# 3D Visualization Configuration
+# Settings for real-time 3D rendering and display
+
+# Window Settings
+window_width: 1024
+window_height: 768
+window_title: "Real-Time 3D Human Detection"
+
+# Rendering Settings
+point_size: 2.0
+coordinate_frame_size: 0.5
+background_color: [0.1, 0.1, 0.1]  # Dark gray background
+fps_target: 30
+
+# Trajectory Visualization
+trajectory_length: 50       # Number of points in trajectory
+trajectory_width: 2.0       # Line width for trajectories
+fade_trajectory: true       # Gradually fade older trajectory points
+
+# Color Scheme for Multiple People
+person_colors:
+  - [1.0, 0.0, 0.0]  # Red
+  - [0.0, 1.0, 0.0]  # Green
+  - [0.0, 0.0, 1.0]  # Blue
+  - [1.0, 1.0, 0.0]  # Yellow
+  - [1.0, 0.0, 1.0]  # Magenta
+  - [0.0, 1.0, 1.0]  # Cyan
+  - [1.0, 0.5, 0.0]  # Orange
+  - [0.5, 0.0, 1.0]  # Purple
+  - [0.5, 1.0, 0.0]  # Lime
+  - [1.0, 0.0, 0.5]  # Pink
+
+# 3D Scene Settings
+camera_position: [0.0, -3.0, 2.0]  # Default camera position
+camera_target: [0.0, 0.0, 1.5]     # Default camera look-at point
+field_of_view: 60                   # Camera field of view in degrees
+
+# Scene Bounds
+scene_bounds:
+  x_min: -5.0
+  x_max: 5.0
+  y_min: -5.0
+  y_max: 5.0
+  z_min: 0.0
+  z_max: 3.0
+
+# Point Cloud Settings
+enable_point_cloud: true    # Show full point cloud
+point_cloud_density: 0.02   # Voxel size for downsampling
+max_points: 10000           # Maximum points to render
+
+# UI Elements
+show_coordinate_frame: true  # Show XYZ coordinate axes
+show_grid: false            # Show floor grid
+show_statistics: true       # Show real-time statistics
+show_track_ids: true        # Show track ID labels
+show_distances: true        # Show distance measurements
+show_speeds: true           # Show speed information
+show_postures: true         # Show posture classifications
+
+# Performance Settings
+update_interval: 0.033      # Update interval in seconds (~30 FPS)
+max_render_time: 0.02       # Maximum time to spend rendering (seconds)
+enable_vsync: true          # Enable vertical sync
+
+# Export Settings
+screenshot_format: "png"    # Format for screenshots
+video_format: "mp4"         # Format for video recording
+trajectory_export_format: "ply"  # Format for trajectory export

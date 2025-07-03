@@ -1,0 +1,57 @@
+# Real-Time 3D Human Detection System Dependencies
+# Optimized for Intel Core Ultra 7 165H with RealSense D455
+
+# Core Dependencies
+numpy>=1.21.0
+opencv-python>=4.8.0
+scipy>=1.9.0
+PyYAML>=6.0
+
+# Computer Vision and AI
+ultralytics>=8.0.0          # YOLOv11 and YOLO models
+torch>=2.0.0               # PyTorch for AI inference
+torchvision>=0.15.0        # Computer vision utilities
+
+# Intel Optimizations
+intel-extension-for-pytorch>=2.0.0  # Intel CPU/GPU optimizations
+openvino>=2024.0.0         # Intel OpenVINO for inference acceleration
+
+# RealSense Camera
+pyrealsense2>=2.55.0       # Intel RealSense SDK
+
+# 3D Processing and Visualization
+open3d>=0.17.0             # 3D point cloud processing and visualization
+matplotlib>=3.6.0          # 2D plotting and fallback visualization
+plotly>=5.15.0             # Interactive 3D visualization (optional)
+
+# Motion Tracking and Filtering
+filterpy>=1.4.5            # Kalman filtering for motion tracking
+scikit-learn>=1.1.0        # Machine learning utilities
+scikit-image>=0.19.0       # Image processing
+
+# Pose Estimation (Optional)
+mediapipe>=0.10.0          # Google MediaPipe for pose estimation
+
+# Performance and Utilities
+tqdm>=4.64.0               # Progress bars
+psutil>=5.9.0              # System monitoring
+loguru>=0.7.0              # Enhanced logging (optional alternative)
+
+# Development and Testing (Optional)
+pytest>=7.0.0             # Unit testing
+black>=22.0.0             # Code formatting
+flake8>=5.0.0             # Code linting
+jupyter>=1.0.0            # Jupyter notebooks for development
+
+# Optional GPU Support
+# Uncomment if CUDA GPU available:
+# torch-audio>=2.0.0
+# torchaudio>=2.0.0
+
+# Optional NPU Support (Intel specific)
+# intel-npu-acceleration-library>=1.0.0  # Direct NPU access (experimental)
+
+# System-specific optimizations
+# For Intel systems, these are recommended:
+mkl>=2023.0.0              # Intel Math Kernel Library
+mkl-service>=2.4.0         # MKL service layer
