@@ -95,7 +95,8 @@ class PersonTrack:
         self.kalman.P *= 100
         
         # Initialize state
-        self.kalman.x[:3] = self.position_3d
+        if self.position_3d and len(self.position_3d) >= 3:
+            self.kalman.x[:3] = np.array(self.position_3d).reshape(-1)
         
     def update(self, detection: Dict, timestamp: float):
         """Update track with new detection"""
@@ -112,7 +113,10 @@ class PersonTrack:
         # Update Kalman filter
         if self.kalman and self.position_3d:
             self.kalman.predict()
-            self.kalman.update(self.position_3d)
+            # Ensure position is correct shape for Kalman filter
+            pos_array = np.array(self.position_3d).reshape(-1)
+            if len(pos_array) >= 3:
+                self.kalman.update(pos_array[:3])
             
             # Get smoothed position and velocity
             smoothed_pos = self.kalman.x[:3].copy()

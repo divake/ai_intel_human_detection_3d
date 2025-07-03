@@ -171,45 +171,62 @@ class HumanDetection3D:
             'fake_people': 0
         }
         
-        # 1. Run YOLOv11 detection
-        detections = self.detector.detect(color_image)
-        
-        if len(detections) > 0:
-            # 2. Filter for real people using depth analysis
-            real_detections = []
-            for detection in detections:
-                if detection['class'] == 'person':  # Only process person detections
-                    is_real = self.photo_judge.is_real_person(
-                        color_image, depth_image, detection['bbox']
-                    )
-                    
-                    if is_real:
-                        # 3. Calculate 3D position
-                        detection['3d_position'] = self.estimator_3d.estimate_position(
-                            detection['bbox'], depth_image
-                        )
-                        
-                        # 4. Classify posture
-                        detection['posture'] = self.posture_classifier.classify(
-                            color_image, detection['bbox']
-                        )
-                        
-                        real_detections.append(detection)
-                        results['real_people'] += 1
-                    else:
-                        results['fake_people'] += 1
+        try:
+            # 1. Run YOLOv11 detection
+            detections = self.detector.detect(color_image)
             
-            # 5. Update tracker with real detections
-            if real_detections:
-                tracks = self.tracker.update(real_detections, timestamp)
-                results['tracks'] = tracks
+            if len(detections) > 0:
+                # 2. Filter for real people using depth analysis
+                real_detections = []
+                for detection in detections:
+                    if detection['class'] == 'person':  # Only process person detections
+                        try:
+                            is_real = self.photo_judge.is_real_person(
+                                color_image, depth_image, detection['bbox']
+                            )
+                            
+                            if is_real:
+                                # 3. Calculate 3D position
+                                position_3d = self.estimator_3d.estimate_position(
+                                    detection['bbox'], depth_image
+                                )
+                                # Ensure position is a list, not numpy array
+                                detection['3d_position'] = list(position_3d) if hasattr(position_3d, '__iter__') else [0.0, 0.0, 0.0]
+                                
+                                # 4. Classify posture
+                                detection['posture'] = self.posture_classifier.classify(
+                                    color_image, detection['bbox']
+                                )
+                                
+                                real_detections.append(detection)
+                                results['real_people'] += 1
+                            else:
+                                results['fake_people'] += 1
+                                
+                        except Exception as e:
+                            self.logger.debug(f"Error processing detection: {e}")
+                            # Skip this detection but continue with others
+                            continue
                 
-                # Update statistics
-                for track in tracks:
-                    self.stats['tracked_ids'].add(track['id'])
-            
-            results['detections'] = real_detections
-            self.stats['total_detections'] += len(real_detections)
+                # 5. Update tracker with real detections
+                if real_detections:
+                    try:
+                        tracks = self.tracker.update(real_detections, timestamp)
+                        results['tracks'] = tracks
+                        
+                        # Update statistics
+                        for track in tracks:
+                            self.stats['tracked_ids'].add(track['id'])
+                    except Exception as e:
+                        self.logger.debug(f"Error in tracking: {e}")
+                        results['tracks'] = []
+                
+                results['detections'] = real_detections
+                self.stats['total_detections'] += len(real_detections)
+                
+        except Exception as e:
+            self.logger.error(f"Error in frame processing: {e}")
+            # Return empty results on error
         
         return results
         

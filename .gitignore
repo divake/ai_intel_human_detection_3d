@@ -1,0 +1,161 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Model files (large)
+data/models/*.pt
+data/models/*.onnx
+data/models/*.pb
+data/models/*.tflite
+data/models/*.h5
+data/models/*.pkl
+data/models/*.pth
+data/models/*.weights
+
+# Data files
+data/test_videos/*.mp4
+data/test_videos/*.avi
+data/test_videos/*.mov
+data/test_videos/*.mkv
+data/calibration/*.bag
+data/calibration/*.rosbag
+
+# Output files
+outputs/logs/*.log
+outputs/recordings/*.mp4
+outputs/recordings/*.avi
+outputs/recordings/*.bag
+outputs/screenshots/*.jpg
+outputs/screenshots/*.png
+outputs/point_clouds/*.ply
+outputs/point_clouds/*.pcd
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# RealSense specific
+*.bag
+*.rosbag
+
+# Large datasets
+*.zip
+*.tar.gz
+*.7z
+*.rar
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Ultralytics cache
+runs/
+*.cache
+
+# OpenVINO files
+*.xml
+*.bin
+
+# Credentials (extra safety)
+*credentials*
+*token*
+*key*
+*.pem
+*.p12
+
+# Logs
+*.log
+logs/
+
+# Cache directories
+.cache/
+cache/
+__pycache__/
+
+# Compiled extensions
+*.so
+*.dylib
+*.dll
+
+# Virtual environments
+.conda/
+conda-meta/
