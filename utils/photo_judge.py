@@ -23,11 +23,11 @@ class RealPersonJudge:
         
         # Default configuration
         self.config = config or {
-            'min_depth_mm': 400,        # Minimum depth (40cm)
-            'max_depth_mm': 8000,       # Maximum depth (8m)
-            'min_valid_pixels': 0.3,    # Minimum 30% valid depth pixels
-            'depth_variance_threshold': 50,  # Minimum depth variance
-            'edge_depth_ratio': 0.7,    # Edge pixels depth consistency
+            'min_depth_mm': 200,        # Minimum depth (20cm) - reduced for close range
+            'max_depth_mm': 10000,      # Maximum depth (10m) - increased range
+            'min_valid_pixels': 0.2,    # Minimum 20% valid depth pixels - more tolerant
+            'depth_variance_threshold': 20,  # Minimum depth variance - reduced for smoother surfaces
+            'edge_depth_ratio': 0.3,    # Edge pixels depth consistency - more tolerant
             'screen_detection_enabled': True,
             'screen_depth_threshold': 100,  # <10cm likely a screen
         }
@@ -220,8 +220,9 @@ class RealPersonJudge:
             return False
             
         # Check 5: Edge consistency (real people have depth gradients)
-        if analysis['edge_consistency'] < self.config['edge_depth_ratio']:
-            return False
+        # Disabled for now as it's too strict
+        # if analysis['edge_consistency'] < self.config['edge_depth_ratio']:
+        #     return False
             
         # All checks passed - likely a real person
         return True

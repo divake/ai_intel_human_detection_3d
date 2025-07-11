@@ -96,7 +96,7 @@ class PersonTrack:
         
         # Initialize state
         if self.position_3d and len(self.position_3d) >= 3:
-            self.kalman.x[:3] = np.array(self.position_3d).reshape(-1)
+            self.kalman.x[:3, 0] = np.array(self.position_3d[:3])
         
     def update(self, detection: Dict, timestamp: float):
         """Update track with new detection"""
@@ -222,7 +222,7 @@ class MultiPersonTracker:
         # Configuration
         self.max_disappeared = config.get('max_disappeared', 30)
         self.max_distance = config.get('max_distance', 100)  # cm
-        self.min_hits = config.get('min_hits', 3)
+        self.min_hits = config.get('confirmed_min_hits', config.get('min_hits', 1))  # Use confirmed_min_hits or min_hits
         self.iou_threshold = config.get('iou_threshold', 0.3)
         self.max_age = config.get('max_age', 5.0)  # seconds
         

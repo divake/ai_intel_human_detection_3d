@@ -4,7 +4,7 @@
 # Track Management
 max_disappeared: 30        # Maximum frames a track can be missing
 max_distance: 1.0         # Maximum distance for track association (meters)
-min_hits: 3               # Minimum detections before track is confirmed
+min_hits: 1               # Minimum detections before track is confirmed
 max_age: 5.0              # Maximum age of track in seconds
 
 # Association Thresholds

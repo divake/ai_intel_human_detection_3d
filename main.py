@@ -47,7 +47,7 @@ class HumanDetection3D:
             'total_detections': 0,
             'real_people': 0,
             'fake_detections': 0,
-            'tracked_ids': set(),
+            'tracked_ids': set(),  # This will store track IDs as a set
             'avg_distance': 0,
             'avg_speed': 0
         }
@@ -276,6 +276,16 @@ class HumanDetection3D:
         cv2.putText(display_image, f"Total IDs: {len(self.stats['tracked_ids'])}", 
                    (10, 120), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 255, 0), 2)
         
+        # Debug information - add tracking stats
+        if hasattr(self, 'tracker'):
+            tracker_stats = self.tracker.get_statistics()
+            cv2.putText(display_image, f"Active Tracks: {tracker_stats.get('active_tracks', 0)}", 
+                       (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 1)
+            cv2.putText(display_image, f"Confirmed: {tracker_stats.get('confirmed_tracks', 0)}", 
+                       (10, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 1)
+            cv2.putText(display_image, f"Tentative: {tracker_stats.get('tentative_tracks', 0)}", 
+                       (10, 190), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 100, 100), 1)
+        
         return display_image
         
     def start_realtime_detection(self, show_3d=True):
@@ -332,8 +342,14 @@ class HumanDetection3D:
                     self.logger.info(f"📸 Screenshot saved: detection_{timestamp_str}.jpg")
                 elif key == ord('r'):
                     # Reset statistics
-                    self.stats = {k: 0 if isinstance(v, (int, float)) else set() if isinstance(v, set) else v 
-                                 for k, v in self.stats.items()}
+                    self.stats = {
+                        'total_detections': 0,
+                        'real_people': 0,
+                        'fake_detections': 0,
+                        'tracked_ids': set(),
+                        'avg_distance': 0,
+                        'avg_speed': 0
+                    }
                     self.logger.info("📊 Statistics reset")
                     
         except KeyboardInterrupt:
