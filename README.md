@@ -17,7 +17,7 @@
   
 ### 🎥 Watch the System in Action!
 
-[![Demo Video](https://img.shields.io/badge/▶️_Play_Demo-Real_vs_Fake_Detection-red?style=for-the-badge)](human_detector_real_fake.webm)
+[![Demo Video](https://img.shields.io/badge/▶️_Play_Demo-Real_vs_Fake_Detection-red?style=for-the-badge)](https://github.com/divake/ai_intel_human_detection_3d/blob/main/human_detector_real_fake.webm?raw=true)
 
 > **⚡ Key Demo Highlights:**
 > - Real-time differentiation between **real humans** and **photos/screens**
