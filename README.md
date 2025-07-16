@@ -11,19 +11,21 @@
 
 </div>
 
-## 🎬 Demo Video
+## 🎬 Live Demo
 
 <div align="center">
-  
-### 🎥 Watch the System in Action!
 
-[![Demo Video](https://img.shields.io/badge/▶️_Play_Demo-Real_vs_Fake_Detection-red?style=for-the-badge)](https://github.com/divake/ai_intel_human_detection_3d/blob/main/human_detector_real_fake.webm?raw=true)
+![Real vs Fake Human Detection Demo](demo_optimized.gif)
 
-> **⚡ Key Demo Highlights:**
-> - Real-time differentiation between **real humans** and **photos/screens**
-> - Multi-person tracking with persistent IDs
-> - 3D depth visualization and point cloud processing
-> - Intel hardware acceleration in action
+> **⚡ Watch as the system instantly differentiates between real humans and photos!**
+> 
+> The demo shows:
+> - 🟢 **Green boxes**: Real humans detected using depth data
+> - 🔴 **Red boxes**: Photos/screens identified as fake
+> - 📊 Real-time depth visualization on the right
+> - 🏷️ Persistent tracking IDs for each person
+
+[![Full Video](https://img.shields.io/badge/📹_Full_Video-41_seconds-blue?style=flat-square)](https://github.com/divake/ai_intel_human_detection_3d/blob/main/human_detector_real_fake.webm?raw=true)
 
 </div>
 
