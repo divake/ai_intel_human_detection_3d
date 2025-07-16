@@ -15,7 +15,7 @@
 
 <div align="center">
 
-![Real vs Fake Human Detection Demo](demo_optimized.gif)
+![Real vs Fake Human Detection Demo](demo_best_part.gif)
 
 > **⚡ Watch as the system instantly differentiates between real humans and photos!**
 > 
