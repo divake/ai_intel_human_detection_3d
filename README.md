@@ -11,20 +11,41 @@
 
 </div>
 
-## 🎬 Live Demo
+## 🎬 Live Demo - Complete 41-Second Showcase
 
 <div align="center">
 
-https://github.com/user-attachments/assets/demo_full.mp4
+<table>
+<tr>
+<td width="50%" align="center">
+<b>Part 1: Initial Detection (0-10s)</b><br>
+<img src="demo_part1_hq.gif" width="100%" alt="Part 1: Initial Detection">
+</td>
+<td width="50%" align="center">
+<b>Part 2: Real vs Fake Test (10-20s)</b><br>
+<img src="demo_part2_hq.gif" width="100%" alt="Part 2: Real vs Fake Test">
+</td>
+</tr>
+<tr>
+<td width="50%" align="center">
+<b>Part 3: Multiple People (20-30s)</b><br>
+<img src="demo_part3_hq.gif" width="100%" alt="Part 3: Multiple People">
+</td>
+<td width="50%" align="center">
+<b>Part 4: Advanced Tracking (30-41s)</b><br>
+<img src="demo_part4_hq.gif" width="100%" alt="Part 4: Advanced Tracking">
+</td>
+</tr>
+</table>
 
-> **⚡ Watch the full 41-second demo in high quality!**
+> **🎯 Full 41-Second Demo in High Quality!**
 > 
-> The demo shows:
+> Watch all 4 parts simultaneously to see:
 > - 🟢 **Green boxes**: Real humans detected using depth data
 > - 🔴 **Red boxes**: Photos/screens identified as fake
-> - 📊 Real-time depth visualization on the right
-> - 🏷️ Persistent tracking IDs for each person
-> - 🎯 Watch how the system instantly differentiates between real people and photos!
+> - 📊 Real-time depth visualization on the right panel
+> - 🏷️ Persistent tracking IDs that follow each person
+> - ⚡ Instant differentiation between real people and 2D images!
 
 </div>
 
