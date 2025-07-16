@@ -15,17 +15,16 @@
 
 <div align="center">
 
-![Real vs Fake Human Detection Demo](demo_best_part.gif)
+https://github.com/user-attachments/assets/demo_full.mp4
 
-> **⚡ Watch as the system instantly differentiates between real humans and photos!**
+> **⚡ Watch the full 41-second demo in high quality!**
 > 
 > The demo shows:
 > - 🟢 **Green boxes**: Real humans detected using depth data
 > - 🔴 **Red boxes**: Photos/screens identified as fake
 > - 📊 Real-time depth visualization on the right
 > - 🏷️ Persistent tracking IDs for each person
-
-[![Full Video](https://img.shields.io/badge/📹_Full_Video-41_seconds-blue?style=flat-square)](https://github.com/divake/ai_intel_human_detection_3d/blob/main/human_detector_real_fake.webm?raw=true)
+> - 🎯 Watch how the system instantly differentiates between real people and photos!
 
 </div>
 
